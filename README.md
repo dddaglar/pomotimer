@@ -12,6 +12,8 @@ I built Pomotimer to track worktime without a browser.
 
 ## Demo
 
+![Pomotimer Demo](assets/pomotimergif.gif)
+
 *Start, pause, resume, skip, and see your stats—all from your terminal!*
 
 ## Installation
