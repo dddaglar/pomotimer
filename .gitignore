@@ -1,0 +1,9 @@
+# Python cache
+__pycache__/
+
+# Virtual envs
+.venv/
+venv/
+
+# Packaging metadata
+*.egg-info/
