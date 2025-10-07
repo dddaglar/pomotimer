@@ -1,9 +1,16 @@
 # Python cache
 __pycache__/
+*.py[cod]
 
 # Virtual envs
 .venv/
 venv/
 
 # Packaging metadata
+build/
+dist/
 *.egg-info/
+
+# ignore data
+pomodoro_sessions.jsonl
+
