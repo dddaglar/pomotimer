@@ -55,6 +55,8 @@ Follow the prompts to start your focus session!
 
 ## Roadmap:
 
+- [ ] Write unit and integration tests
+- [ ] Try to make the input thread the main thread, and the time counting the side thread
 - [ ] Basic notifications, terminal bell, break time/focustime
 - [ ] Status prints current remaining time and state
 - [ ] Show daily, weekly, monthly sessions completed, maybe show recommendations

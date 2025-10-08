@@ -22,7 +22,7 @@ class SessionController:
         time_format = f"{mins:02}:{secs:02}"
         filled = int(bar_length * percent)
         bar = "█" * filled + "-" * (bar_length - filled)
-        print(f"\r{name} [{bar}] {percent*100:5.1f}% - Time Left: {time_format} {self._pause_event.is_set()} {self.pause_start == 0} " , end="")
+        print(f"\r{name} [{bar}] {percent*100:5.1f}% - Time Left: {time_format}" , end="")
         sys.stdout.flush()
 
 
@@ -42,7 +42,6 @@ class SessionController:
                 break
             if cmd == "p" and self._pause_event.is_set():
                 mins, secs, _ = self.get_remaining_time()
-                #these functions created problems so I had to get them out
                 self._pause_event.clear()
                 print(f"\nPaused. Press 'r' to resume. {int(mins):02d}:{int(secs):02d} minutes left.")
             elif cmd == "r" and not self._pause_event.is_set():
@@ -85,7 +84,6 @@ class SessionController:
         end = self.start_time + total_seconds
         actual_minutes = 0
         try:
-            #test if it has been one second with nexttick.
             while not self.quit and time.monotonic() < end:
                 if time.monotonic() > next_tick:
                     next_tick += 1

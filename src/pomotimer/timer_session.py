@@ -18,12 +18,6 @@ class TimerSession:
         self.type = type
         self.duration_minutes = duration_minutes
 
-    # def get_name(self):
-    #     return self.name
-
-    # def get_duration(self):
-    #     return self.duration_minutes
-
     @staticmethod
     def of_type_default(type: SessionType):
         duration_minutes = session_type_default_duration(type)
@@ -53,18 +47,3 @@ class TimerSession:
                 return SessionType.SHORT_BREAK
             case SessionType.SHORT_BREAK | SessionType.LONG_BREAK:
                 return SessionType.WORK
-
-# class WorkSession(TimerSession):
-#     def __init__(self, duration_minutes):
-#         super().__init__("Work", duration_minutes)
-        
-
-
-# class ShortBreak(TimerSession):
-#     def __init__(self, duration_minutes):
-#         super().__init__("Short Break", duration_minutes)
-
-
-# class LongBreak(TimerSession):
-#     def __init__(self, duration_minutes):
-#         super().__init__("Long Break", duration_minutes)

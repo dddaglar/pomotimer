@@ -59,9 +59,16 @@ class PomodoroTimer:
         self.short_break_counter = 0
 
     def plan(self, n_work_sessions):
-        work_with_breaks = n_work_sessions * 2 - 1
-        res = [SessionType.WORK, SessionType.SHORT_BREAK] * (work_with_breaks // 2)
+        res = ([TimerSession.work(self.config.work_duration), 
+               TimerSession.short_break(self.config.short_break)] * (n_work_sessions-1)) + [TimerSession.work(self.config.work_duration)]
         longs = self.config.sessions_before_long
-        for i in range(longs, len(res), longs):
-            res[i] = SessionType.LONG_BREAK
+        freq = (longs * 2-1)
+        for i in range(freq, len(res), freq):
+            res[i] = TimerSession.long_break(self.config.long_break)
         return res
+    
+    def print_plan(self, plan):
+        res_str = []
+        for i, sesh in enumerate(plan):
+            res_str.append(f"{i+1}. {sesh.get_type()} Session of Length: {sesh.get_duration()}")
+        return "\n".join(res_str)
